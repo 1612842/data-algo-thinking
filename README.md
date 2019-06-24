@@ -1,6 +1,34 @@
-# Khái niệm
+<!-- TOC -->
+- [1. Khái niệm](#1-Kh%C3%A1i-ni%E1%BB%87m)
+  - [1.1. Cấu trúc dữ liệu](#11-C%E1%BA%A5u-tr%C3%BAc-d%E1%BB%AF-li%E1%BB%87u)
+    - [1.1.1. Bloom Filters - Membership](#111-Bloom-Filters---Membership)
+    - [1.1.2. Cuckoo filter](#112-Cuckoo-filter)
+    - [1.1.3. Count min sketch - Frequency](#113-Count-min-sketch---Frequency)
+    - [1.1.4. HyperLogLog - Cardinality](#114-HyperLogLog---Cardinality)
+    - [1.1.5. Trie là gì? Ứng dụng như thế nào?](#115-Trie-l%C3%A0-g%C3%AC-%E1%BB%A8ng-d%E1%BB%A5ng-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+  - [1.2. Design Pattern](#12-Design-Pattern)
+    - [1.2.1. Dependency injection](#121-Dependency-injection)
+    - [1.2.2. Factory](#122-Factory)
+    - [1.2.3. Singleton](#123-Singleton)
+    - [1.2.4. Builder](#124-Builder)
+    - [1.2.5. Composite](#125-Composite)
+  - [1.3. Nguyên tắc lập trình](#13-Nguy%C3%AAn-t%E1%BA%AFc-l%E1%BA%ADp-tr%C3%ACnh)
+    - [1.3.1. SOLID](#131-SOLID)
+    - [1.3.2. DRY](#132-DRY)
+    - [1.3.3. KISS](#133-KISS)
+    - [1.3.4. YAGNI](#134-YAGNI)
+    - [1.3.5. Do the simplest thing that could possibly work](#135-Do-the-simplest-thing-that-could-possibly-work)
+    - [1.3.6. Clean code là gì? Ít nhất 5 cách để clean code?](#136-Clean-code-l%C3%A0-g%C3%AC-%C3%8Dt-nh%E1%BA%A5t-5-c%C3%A1ch-%C4%91%E1%BB%83-clean-code)
+- [2. Bài tập](#2-B%C3%A0i-t%E1%BA%ADp)
+  - [2.1. Predictive text](#21-Predictive-text)
+  - [2.2. Hash Tables](#22-Hash-Tables)
+  - [2.3. Tính thời gian xử lý khiếu nại](#23-T%C3%ADnh-th%E1%BB%9Di-gian-x%E1%BB%AD-l%C3%BD-khi%E1%BA%BFu-n%E1%BA%A1i)
+- [3. Nguồn tham khảo](#3-Ngu%E1%BB%93n-tham-kh%E1%BA%A3o)
+<!-- /TOC -->
 
-## Cấu trúc dữ liệu
+# 1. Khái niệm
+
+## 1.1. Cấu trúc dữ liệu
 
 -   `Probabilistic  data structures` không đưa ra kết quả chính xác mà là đưa ra một xấp xĩ gần đúng với câu trả lời hay kết quả của bài toán. Chúng cực kì hữu hiệu đối với big data và streaming application bởi vì có thể giảm thiểu đáng kể dung lượng bộ nhớ cần thiết so với các cấu trúc đưa ra kết quả chính xác
 -   Trong phần lớn các cấu trúc dữ liệu này sử dụng hash function làm ngẫu nhiên hóa các items. Điểm mạnh:
@@ -14,7 +42,7 @@
     -   Count Min Skectch
     -   HyperLogLog
 
-### Bloom Filters - Membership
+### 1.1.1. Bloom Filters - Membership
 
 -   Khi insert data mới vào mảng thông thường, giá trị index (nơi data được add vào), không được quyết định bởi giá trị được add vào. Không có mối liên hệ trực tiếp giữa key và value. Do đó, nếu search tìm value phải duyệt tất cả indexs
 -   Tuy nhiên với Hash table, ta có thể quyết định key hay index dựa trên hashing cái value. Sau đó đặt value vào đúng index trong danh sách. Điều này có nghĩa key được quyết định bằng value, khi cần tìm value chỉ việc hash value là tìm được index của nó, chỉ tốn O(1) thời gian tìm kiếm
@@ -69,7 +97,7 @@
 ![](https://cdn-images-1.medium.com/max/1600/1*eDTlEUQCLRB8wL96GileXA.png)
 
 
-### Cuckoo filter
+### 1.1.2. Cuckoo filter
 
 -   Cuckoo filter cải thiện thiết kế của Bloom filter bằng việc đề xuất delete, giới hạn counting, xác suất false positive được giới hạn trong khi vẫn giữ được giống space complexity. Sử dụng Cuckoo để giải quyết đụng độ và bản chất là một bản băm cuckoo compact
 
@@ -137,7 +165,7 @@
 -   Time complexity:
     -   Trong băm cuckoo, chèn một phần tử có vẻ tệ hơn nhiều so với O (1) trong trường hợp xấu nhất vì có thể có nhiều trường hợp trong khi va chạm, trong đó chúng ta phải xóa một giá trị để nhường chỗ cho giá trị hiện tại. Thêm vào đó, nếu có một chu kỳ thì toàn bộ bảng phải được thử lại
 
-### Count min sketch - Frequency
+### 1.1.3. Count min sketch - Frequency
 -   Dùng để ước lượng số lần xuất hiện của 1 phần tử trong tập hợp
 -   Là cấu trúc dữ liệu có không gian sublinear mà hỗ trợ:
     -   add phần tử vào cấu trúc
@@ -176,7 +204,7 @@
     -   AT&T sử dụng Count Min Sketch trong chuyển đổi các mạng để thực hiện đánh giá các traffic network sử dụng memory giới hạn
     -   Ở Google sử dụng tiền thân của nó để thực hiện MapReduce kiến trúc xử lí song song
 
-### HyperLogLog - Cardinality
+### 1.1.4. HyperLogLog - Cardinality
 
 -   Không gian phân biệt (Cardinality) của các tập hợp các số được phân bố thống nhất có thể được ước lượng bởi tối đa số 0 ở đầu trong biểu diễn nhị phân của mỗi số. Nếu giá trị value là k, số lượng các phần tử phân biệt trong tập hợp là 2^k
 
@@ -221,37 +249,37 @@
 -   Ứng dụng:
     -   PFCOUNT trong Redis sử dụng HyperLogLog sử dụng 12kb per key để đếm với sai số 0.81%, không có giới hạn số lượng trừ phi tiếp cận 2^64 items
 
-### Trie là gì? Ứng dụng như thế nào?
+### 1.1.5. Trie là gì? Ứng dụng như thế nào?
 
-## Design Pattern
+## 1.2. Design Pattern
 
-### Dependency injection
+### 1.2.1. Dependency injection
 
-### Factory
+### 1.2.2. Factory
 
-### Singleton
+### 1.2.3. Singleton
 
-### Builder
+### 1.2.4. Builder
 
-### Composite
+### 1.2.5. Composite
 
-## Nguyên tắc lập trình
+## 1.3. Nguyên tắc lập trình
 
-### SOLID
+### 1.3.1. SOLID
 
-### DRY
+### 1.3.2. DRY
 
-### KISS
+### 1.3.3. KISS
 
-### YAGNI
+### 1.3.4. YAGNI
 
-### Do the simplest thing that could possibly work
+### 1.3.5. Do the simplest thing that could possibly work
 
-### Clean code là gì? Ít nhất 5 cách để clean code?
+### 1.3.6. Clean code là gì? Ít nhất 5 cách để clean code?
 
-# Bài tập
+# 2. Bài tập
 
-## Predictive text
+## 2.1. Predictive text
 
 Cho dataset [Blog Authorship Corpus](https://github.com/niderhoff/nlp-datasets).
 
@@ -273,13 +301,13 @@ Làm chương trình Java cung cấp 2 tính năng:
 
 **Tip**: Nên định nghĩa 1 interface là `Dictionary` với method `public boolean contains(String word)` để implement lại.
 
-## Hash Tables
+## 2.2. Hash Tables
 
 - Tham khảo [repo sau](https://github.com/jamesroutley/write-a-hash-table).
 - Viết lại hoàn toàn bằng Java một hash table tương tự.
 - Hiện thực ít nhất 3 cách giải quyết đụng độ.
 
-## Tính thời gian xử lý khiếu nại
+## 2.3. Tính thời gian xử lý khiếu nại
 
 Hiện tại, bộ phần CS(Customer Service) sẽ nhận các khiếu nại từ người dùng và trả lời các khiếu nại đó. Để người dùng không phải chờ câu trả lời quá lâu, chúng ta phải đảm bảo người dùng sẽ nhận câu trả lời trong thời gian tối đa là 8 tiếng làm việc. Vì vậy, cần một chương trình tính `thời gian từ lúc nhận khiếu nại đến khi khiếu nại được giải quyết` để biết bộ phận CS làm việc có hiệu quả.
 
@@ -294,7 +322,7 @@ Trong folder `ticketSLA` là 1 project java đã được `init` sẵn. Bạn h�
 - `Benchmark` cho hàm `calculate`.
 
 
-# Nguồn tham khảo
+# 3. Nguồn tham khảo
 - [Principles of Good Programming](https://www.artima.com/weblogs/viewpost.jsp?thread=331531)
 - [Programming Principles](https://github.com/webpro/programming-principles#avoid-premature-optimization)
 - [Clean code](https://gitlab.zalopay.vn/zalopay-freshers/onboarding/tree/master/books/tech/skills)
