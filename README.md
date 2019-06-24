@@ -202,6 +202,7 @@
 -   Cardinality estimation được tính toán như normalized bias corrected harmonic mean của các ước lượng trên các stream con
 
 -   Ví dụ
+  
     ![](media/exhyperloglog.png)
 
     ![](media/exHyperloglog2.png)
