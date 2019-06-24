@@ -221,7 +221,90 @@
 -   Ứng dụng:
     -   PFCOUNT trong Redis sử dụng HyperLogLog sử dụng 12kb per key để đếm với sai số 0.81%, không có giới hạn số lượng trừ phi tiếp cận 2^64 items
 
+### Trie là gì? Ứng dụng như thế nào?
+
+## Design Pattern
+
+### Dependency injection
+
+### Factory
+
+### Singleton
+
+### Builder
+
+### Composite
+
+## Nguyên tắc lập trình
+
+### SOLID
+
+### DRY
+
+### KISS
+
+### YAGNI
+
+### Do the simplest thing that could possibly work
+
+### Clean code là gì? Ít nhất 5 cách để clean code?
+
+# Bài tập
+
+## Predictive text
+
+Cho dataset [Blog Authorship Corpus](https://github.com/niderhoff/nlp-datasets).
+
+Làm chương trình Java cung cấp 2 tính năng:
+
+- Kiểm tra 1 từ có nằm trong dataset không? 
+- Gợi ý những từ giống với từ **input** mà có trong dataset (gần giống như cách Google instant search gợi ý). Sự gần giống giữa các từ do em tự định nghĩa nhưng phải hợp lý.
+
+**Yêu cầu**:
+
+- Phải hiện thực ít nhất `2 cách` với tính năng kiểm tra từ tồn tại.
+- Tìm cách tối ưu chương trình với các cấu trúc dữ liệu mà em đã học được ở trên.
+- `Benchmark` cho phần kiểm tra từ.
+- Sử dụng ít nhất `2 design pattern`.
+- `Không được import lib` có sẵn(được `copy source` hiện thực nhưng sẽ có hỏi về cách hoạt động).
+- Phần gợi ý phải gợi ý `ít nhất 5` từ gần giống với input đầu vào.
+- Tự định nghĩa cách hiện `output`.
+- Nhớ viết chương trình như một `Good Programmer`
+
+**Tip**: Nên định nghĩa 1 interface là `Dictionary` với method `public boolean contains(String word)` để implement lại.
+
+## Hash Tables
+
+- Tham khảo [repo sau](https://github.com/jamesroutley/write-a-hash-table).
+- Viết lại hoàn toàn bằng Java một hash table tương tự.
+- Hiện thực ít nhất 3 cách giải quyết đụng độ.
+
+## Tính thời gian xử lý khiếu nại
+
+Hiện tại, bộ phần CS(Customer Service) sẽ nhận các khiếu nại từ người dùng và trả lời các khiếu nại đó. Để người dùng không phải chờ câu trả lời quá lâu, chúng ta phải đảm bảo người dùng sẽ nhận câu trả lời trong thời gian tối đa là 8 tiếng làm việc. Vì vậy, cần một chương trình tính `thời gian từ lúc nhận khiếu nại đến khi khiếu nại được giải quyết` để biết bộ phận CS làm việc có hiệu quả.
+
+Giờ làm việc được tính từ `8h30` tới `12h` với buổi sáng và `13h30` đến `18h` với buổi chiều. CS sẽ làm nguyên ngày từ thứ 2 đến thứ 6, riêng thứ 7 sẽ chỉ làm buổi sáng.
+
+Trong folder `ticketSLA` là 1 project java đã được `init` sẵn. Bạn hãy hiện thực hàm `calculate` ở class `SlaServiceImpl`. Sau đó, các bạn thêm testcase trong `SlaServiceTest` để kiểm tra tính đúng sai của hàm đã viết.
+
+`Lưu ý`:
+
+- Đây là 1 bài toán thực tế nên không có bất kì giới hạn nào.
+- Nếu có bất kì thắc mắc nào, vui lòng liên hệ `thinhda`.
+- `Benchmark` cho hàm `calculate`.
+
+
 # Nguồn tham khảo
+- [Principles of Good Programming](https://www.artima.com/weblogs/viewpost.jsp?thread=331531)
+- [Programming Principles](https://github.com/webpro/programming-principles#avoid-premature-optimization)
+- [Clean code](https://gitlab.zalopay.vn/zalopay-freshers/onboarding/tree/master/books/tech/skills)
+- [Series 4 bài về Probabilistic data structures của Andrii Gakhov](https://www.slideshare.net/gakhov/presentations).
+- [One secret to becoming a great software engineer: read code](https://hackernoon.com/one-secret-to-becoming-a-great-software-engineer-read-code-467e31f243b0?zdlink=Uo9XRcHoRsba8ZeYOszjBcrbP6brRIvoPM5aPN8YB29fRtCYEdiYSsDePMrbNtLoR28w8dfXR6yjE38uCZKsCZCsEbmlN2yYB29XS71fP28w8ZWoE38rDZ8pDY9zVG)
+- [Awesome Algo](https://github.com/tayllan/awesome-algorithms).
+- [Cracking the Coding Interview: 150 Programming Questions and Solutions](https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/098478280X).
+- [Data Structures and Algorithms in Java (2nd Edition)](https://www.amazon.com/Data-Structures-Algorithms-Java-2nd/dp/0672324539).
+- [jupyter](jupyter.md)
+
 -   https://highlyscalable.wordpress.com/2012/05/01/probabilistic-structures-web-analytics-data-mining/
 -   https://blog.vietnamlab.vn/2016/09/29/gioi-thieu-ve-bloom-filter/
 -   https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832
