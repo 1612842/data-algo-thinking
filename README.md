@@ -1,31 +1,3 @@
-<!-- TOC -->
-- [1. Khái niệm](#1-Kh%C3%A1i-ni%E1%BB%87m)
-  - [1.1. Cấu trúc dữ liệu](#11-C%E1%BA%A5u-tr%C3%BAc-d%E1%BB%AF-li%E1%BB%87u)
-    - [1.1.1. Bloom Filters - Membership](#111-Bloom-Filters---Membership)
-    - [1.1.2. Cuckoo filter](#112-Cuckoo-filter)
-    - [1.1.3. Count min sketch - Frequency](#113-Count-min-sketch---Frequency)
-    - [1.1.4. HyperLogLog - Cardinality](#114-HyperLogLog---Cardinality)
-    - [1.1.5. Trie là gì? Ứng dụng như thế nào?](#115-Trie-l%C3%A0-g%C3%AC-%E1%BB%A8ng-d%E1%BB%A5ng-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
-  - [1.2. Design Pattern](#12-Design-Pattern)
-    - [1.2.1. Dependency injection](#121-Dependency-injection)
-    - [1.2.2. Factory](#122-Factory)
-    - [1.2.3. Singleton](#123-Singleton)
-    - [1.2.4. Builder](#124-Builder)
-    - [1.2.5. Composite](#125-Composite)
-  - [1.3. Nguyên tắc lập trình](#13-Nguy%C3%AAn-t%E1%BA%AFc-l%E1%BA%ADp-tr%C3%ACnh)
-    - [1.3.1. SOLID](#131-SOLID)
-    - [1.3.2. DRY](#132-DRY)
-    - [1.3.3. KISS](#133-KISS)
-    - [1.3.4. YAGNI](#134-YAGNI)
-    - [1.3.5. Do the simplest thing that could possibly work](#135-Do-the-simplest-thing-that-could-possibly-work)
-    - [1.3.6. Clean code là gì? Ít nhất 5 cách để clean code?](#136-Clean-code-l%C3%A0-g%C3%AC-%C3%8Dt-nh%E1%BA%A5t-5-c%C3%A1ch-%C4%91%E1%BB%83-clean-code)
-- [2. Bài tập](#2-B%C3%A0i-t%E1%BA%ADp)
-  - [2.1. Predictive text](#21-Predictive-text)
-  - [2.2. Hash Tables](#22-Hash-Tables)
-  - [2.3. Tính thời gian xử lý khiếu nại](#23-T%C3%ADnh-th%E1%BB%9Di-gian-x%E1%BB%AD-l%C3%BD-khi%E1%BA%BFu-n%E1%BA%A1i)
-- [3. Nguồn tham khảo](#3-Ngu%E1%BB%93n-tham-kh%E1%BA%A3o)
-<!-- /TOC -->
-
 # 1. Khái niệm
 
 ## 1.1. Cấu trúc dữ liệu
@@ -250,32 +222,916 @@
     -   PFCOUNT trong Redis sử dụng HyperLogLog sử dụng 12kb per key để đếm với sai số 0.81%, không có giới hạn số lượng trừ phi tiếp cận 2^64 items
 
 ### 1.1.5. Trie là gì? Ứng dụng như thế nào?
+- Trie là một cấu trúc dữ liệu dùng để quản lý một tập hợp các xâu. Trie cho phép:
+
+  - Thêm một xâu vào tập hợp
+  - Xóa một xâu khỏi tập hợp
+  - Kiểm tra một xâu có tồn tại trong tập hợp hay không.
+
+**Cấu trúc**
+
+- Trie gồm một gốc không chứa thông tin, trên mỗi cạnh lưu một ký tự, mỗi nút và đường đi từ gốc đến nút đó thể hiện 1 xâu, gồm các ký tự là các ký tự thuộc cạnh trên đường đi đó.
+
+![](https://vnoi.info/wiki/uploads/trie.png)
+
+- Trong hình vẽ trên, nút 1 là nút gốc, nút 7 thể hiện có 1 xâu là ‘bg’, nút 8 thể hiện có 1 xâu là ‘db’, nút 9 thể hiện có 1 xâu là ‘dc’, nút 10 thể hiện có 1 xâu là ‘acd’, nút 5 thể hiện là có 1 xâu là ‘ab’.
+
+- Đối với một số nút, chẳng hạn nút 4, ta không biết nó là thể hiện kết thúc 1 xâu hay chỉ là 1 phần của đường đi từ nút 1 đến nút 9. Vì vậy, khi cài đặt, thông thường, tại nút U ta cần lưu thêm thông tin nút U có là kết thúc của 1 xâu hay không, hoặc nút U là kết thúc của bao nhiêu xâu, tuỳ theo yêu cầu bài toán.
+
+**Ưu điểm**
+
+- Cài đặt đơn giản, dễ nhớ
+
+- Tiết kiệm bộ nhớ: Khi số lượng khóa lớn và các khóa có độ dài nhỏ, thông thường trie tiết kiệm bộ nhớ hơn do các phần đầu giống nhau của các khoá chỉ được lưu 1 lần. Ưu điểm này có ứng dụng rất lớn, chẳng hạn trong từ điển.
+
+- Thao tác tìm kiếm: O(m) với m là độ dài khóa. Với Binary search tree (cân bằng): là O(logN). Khi số lượng khóa cần tìm lớn và độ dài mỗi khóa tương đối nhỏ, logN xấp xỉ m, để cài được Binary search tree cân bằng không phải là một việc đơn giản. Hơn nữa, các thao tác trên trie rất đơn giản và thường chạy nhanh hơn trên thực tế.
+
+- Dựa vào tính chất của cây trie, có thể thực hiện một số liên quan đến thứ tự từ điển như sắp xếp, tìm một khóa có thứ tự từ điển nhỏ nhất và lớn hơn một khóa cho trước, và một số thao tác liên quan đến tiền tố, hậu tố.
+
+**Cài đặt**
+![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/Trie.png)
+
+```Java
+    // Alphabet size (# of symbols) 
+    static final int ALPHABET_SIZE = 26; 
+      
+    // trie node 
+    static class TrieNode 
+    { 
+        TrieNode[] children = new TrieNode[ALPHABET_SIZE]; 
+       
+        // isEndOfWord is true if the node represents 
+        // end of a word 
+        boolean isEndOfWord; 
+          
+        TrieNode(){ 
+            isEndOfWord = false; 
+            for (int i = 0; i < ALPHABET_SIZE; i++) 
+                children[i] = null; 
+        } 
+    }; 
+       
+    static TrieNode root;  
+      
+    // If not present, inserts key into trie 
+    // If the key is prefix of trie node,  
+    // just marks leaf node 
+    static void insert(String key) 
+    { 
+        int level; 
+        int length = key.length(); 
+        int index; 
+       
+        TrieNode pCrawl = root; 
+       
+        for (level = 0; level < length; level++) 
+        { 
+            index = key.charAt(level) - 'a'; 
+            if (pCrawl.children[index] == null) 
+                pCrawl.children[index] = new TrieNode(); 
+       
+            pCrawl = pCrawl.children[index]; 
+        } 
+       
+        // mark last node as leaf 
+        pCrawl.isEndOfWord = true; 
+    } 
+       
+    // Returns true if key presents in trie, else false 
+    static boolean search(String key) 
+    { 
+        int level; 
+        int length = key.length(); 
+        int index; 
+        TrieNode pCrawl = root; 
+       
+        for (level = 0; level < length; level++) 
+        { 
+            index = key.charAt(level) - 'a'; 
+       
+            if (pCrawl.children[index] == null) 
+                return false; 
+       
+            pCrawl = pCrawl.children[index]; 
+        } 
+       
+        return (pCrawl != null && pCrawl.isEndOfWord); 
+    } 
+       
+    // Driver 
+    public static void main(String args[]) 
+    { 
+        // Input keys (use only 'a' through 'z' and lower case) 
+        String keys[] = {"the", "a", "there", "answer", "any", 
+                         "by", "bye", "their"}; 
+       
+        String output[] = {"Not present in trie", "Present in trie"}; 
+       
+       
+        root = new TrieNode(); 
+       
+        // Construct trie 
+        int i; 
+        for (i = 0; i < keys.length ; i++) 
+            insert(keys[i]); 
+       
+        // Search for different keys 
+        if(search("the") == true) 
+            System.out.println("the --- " + output[1]); 
+        else System.out.println("the --- " + output[0]); 
+          
+        if(search("these") == true) 
+            System.out.println("these --- " + output[1]); 
+        else System.out.println("these --- " + output[0]); 
+          
+        if(search("their") == true) 
+            System.out.println("their --- " + output[1]); 
+        else System.out.println("their --- " + output[0]); 
+          
+        if(search("thaw") == true) 
+            System.out.println("thaw --- " + output[1]); 
+        else System.out.println("thaw --- " + output[0]); 
+         
+    } 
+
+```
+
+**Output**
+
+```
+the --- Present in trie
+these --- Not present in trie
+their --- Present in trie
+thaw --- Not present in trie
+```
 
 ## 1.2. Design Pattern
 
 ### 1.2.1. Dependency injection
 
+![](https://toidicodedao.files.wordpress.com/2015/09/ioc-and-mapper-in-c-1-638.jpg?w=474)
+
+- Dependency Inversion: Đây là một nguyên lý để thiết kế và viết code.
+- Inversion of Control: Đây là một design pattern được tạo ra để code có thể tuân thủ nguyên lý Dependency Inversion. Có nhiều cách hiện thực pattern này: ServiceLocator, Event, Delegate, … Dependency Injection là một trong các cách đó.
+- Dependency Injection: Đây là một cách để hiện thực Inversion of Control Pattern (Có thể coi nó là một design pattern riêng cũng được). Các module phụ thuộc (dependency) sẽ được inject vào module cấp cao.
+
+- Có thể hiểu Dependency Injection một cách đơn giản như sau:
+  - Các module không giao tiếp trực tiếp với nhau, mà thông qua interface. Module cấp thấp sẽ implement interface, module cấp cao sẽ gọi module cấp thấp thông qua interface. 
+    - Ví dụ: Để giao tiếp với database, ta có interface IDatabase, các module cấp thấp là XMLDatabase, SQLDatabase. Module cấp cao là CustomerBusiness sẽ chỉ sử dụng interface IDatabase.
+  - Việc khởi tạo các module cấp thấp sẽ do DI Container thực hiện
+    - Ví dụ: Trong module CustomerBusiness, ta sẽ không khởi tạo IDatabase db = new XMLDatabase(), việc này sẽ do DI Container thực hiện. Module CustomerBusiness sẽ không biết gì về module XMLDatabase hay SQLDatabase.
+  - Việc Module nào gắn với interface nào sẽ được config trong code hoặc trong file XML.
+  - DI được dùng để làm giảm sự phụ thuộc giữa các module, dễ dàng hơn trong việc thay đổi module, bảo trì code và testing.
+
+Có 3 dạng Dependency Injection:
+- **Constructor Injection**: Các dependency sẽ được container truyền vào (inject vào) 1 class thông qua constructor của class đó. Đây là cách thông dụng nhất.
+- **Setter Injection**: Các dependency sẽ được truyền vào 1 class thông qua các hàm Setter.
+- **Interface Injection**: Class cần inject sẽ implement 1 interface. Interface này chứa 1 hàm tên Inject. Container sẽ injection dependency vào 1 class thông qua việc gọi hàm Inject của interface đó. Đây là cách rườm rà và ít được sử dụng nhất.
+
+Ưu điểm:
+- Giảm sự kết dính giữa các module
+- Code dễ bảo trì, dễ thay thế module
+- Rất dễ test và viết Unit Test
+- Dễ dàng thấy quan hệ giữa các module (Vì các dependecy đều được inject vào constructor)
+
+Khuyết điểm:
+- Khái niệm DI khá “khó tiêu”, các developer mới sẽ gặp khó khăn khi học
+- Sử dụng interface nên đôi khi sẽ khó debug, do không biết chính xác module nào được gọi
+- Các object được khởi tạo toàn bộ ngay từ đầu, có thể làm giảm performance
+- Làm tăng độ phức tạp của code
+
+Cài đặt:
+
+- Ví dụ chúng ta có một class Car, trong đó có chứa một vài object khác như Wheel, Battery...
+
+
+```Java
+class Car{
+  private Wheels wheel = new MRFWheels();
+  private Battery battery = new ExcideBattery();
+  ...
+  ...
+}
+```
+
+- Ở đây, class Car chịu trách nhiệm khởi tạo tất cả các dependency object. Nhưng chuyện gì sẽ xảy ra nếu chúng ta muốn bỏ MRFWheel và thay thế bằng YokohamaWheel.
+
+- Chúng ta sẽ cần tạo một class Car mới với YokohamaWheel, tuy nhiên khi sử dụng dependency injection, chúng ta có thể đổi Wheel ở runtime vì dependency có thể đc đẩy vào (inject) ở runtime thay vì complile time.
+
+- Bạn có thể hiểu là dependency injection là một người trung gian chịu trách nhiệm tạo ra các loại wheel khác nhau, rồi cung cấp chúng cho class Car. Việc đó làm cho class Car ko phải phụ thuộc vào Wheel cụ thể nào hay Battery cụ thể nào nữa.
+
+```Java
+class Car{
+  private Wheels wheel;
+  private Battery battery;
+  
+  /*Ở đâu đó trong project, ta khởi tạo những objects mà đc yêu cầu bởi class này
+    Có 2 cách để implement dependency injection
+    1. Dựa vào constructor
+    2. Dựa vào Setter method
+  */
+  
+  // Dựa vào constructor
+  Car(Wheel wh, Battery bt) {
+    this.wh = wh;
+    this.bt = bt;
+  }
+  
+  // Dựa vào Setter method
+  void setWheel(Batter bt){
+    this.bt = bt;
+  }
+  ...  
+  ...
+}
+```
+
+Vậy trách nhiệm của dependency injection là:
+
+- Tạo ra các object.
+- Biết được class nào cần những object đấy.
+- Cung cấp cho những class đó những object chúng cần.
+
+Bằng cách này, nếu trong tương lai object đó có sự thay đổi thì dependency injection có nhiệm vụ cấp lại những object cần thiết cho class.
+
 ### 1.2.2. Factory
+
+- Mẫu thiế kế Factory Method cho phép các lớp con chọn kiểu đối tượng cần tạo.
+- Nó thúc đẩy sự liên kết lỏng lẻo bằng cách loại bỏ sự cần thiết phải ràng buộc các lớp cụ thể vào code. Điều đó có nghĩa là code chỉ tương tác với interface hoặc lớp abstract, để nó sẽ làm việc với bất kỳ lớp nào implements interface đó hoặc extends lớp abstract.
+
+Khi nào sử dụng mẫu thiết kế Factory Method:
+
+- Khi một lớp không biết những lớp con nào sẽ được yêu cầu để tạo ra.
+- Khi một lớp muốn các lớp con của nó chỉ định các đối tượng được tạo ra.
+- Khi các lớp cha chọn việc tạo các đối tượng cho các lớp con của nó.
+
+Ví dụ:
+
+- Chúng ta sẽ tạo ra một lớp trừu tượng Plan và các lớp cụ thể được extends lớp trừu tượng Plan. Tiếp theo định nghĩa một lớp nhà máy có tên GetPlanFactory.
+- Lớp GenerateBill sẽ sử dụng GetPlanFactory để lấy đối tượng Plan. Nó sẽ chuyển thông tin (DOMESTICPLAN / COMMERCIALPLAN / INSTITUTIONALPLAN) tới GetPalnFactory để có được loại đối tượng cần thiết.
+
+![](https://viettuts.vn/images/design-pattern/mau-thiet-ke-factory-method.jpg)
+
+Step 1: Tạo lớp trừu tượng Plan. 
+
+```Java
+public abstract class Plan {
+    protected double rate;
+ 
+    abstract void getRate();
+ 
+    public void calculateBill(int units) {
+        System.out.println(units * rate);
+    }
+}
+```
+
+Step 2: Tạo các lớp cụ thể extends lớp trừu tượng Plan. 
+
+```Java
+public class DomesticPlan extends Plan {
+    @Override
+    public void getRate() {
+        rate = 3.50;
+    }
+}
+```
+
+```Java
+public class CommercialPlan extends Plan {
+    @Override
+    public void getRate() {
+        rate = 7.50;
+    }
+}
+```
+
+```Java
+public class CommercialPlan extends Plan {
+    @Override
+    public void getRate() {
+        rate = 7.50;
+    }
+}
+```
+
+```java
+public class InstitutionalPlan extends Plan {
+    @Override
+    public void getRate() {
+        rate = 5.50;
+    }
+}
+```
+
+Step 3: Tạo lớp nhà máy GetPlanFactory để sinh ra các đối tượng của các lớp cụ thể dựa trên thông tin đã cho. 
+
+```Java
+public class GetPlanFactory {
+    // sung dung phuong thuc getPlan de lay doi tuong co kieu Plan
+    public Plan getPlan(String planType) {
+        if (planType == null) {
+            return null;
+        }
+        if (planType.equalsIgnoreCase("DOMESTICPLAN")) {
+            return new DomesticPlan();
+        } else if (planType.equalsIgnoreCase("COMMERCIALPLAN")) {
+            return new CommercialPlan();
+        } else if (planType.equalsIgnoreCase("INSTITUTIONALPLAN")) {
+            return new InstitutionalPlan();
+        }
+        return null;
+    }
+}
+```
+
+Step 4: Sinh ra hóa đơn bằng cách sử dụng GetPlanFactory để lấy đối tượng của lớp cụ thể bằng cách truyền thông tin như sau DOMESTICPLAN hoặc COMMERCIALPLAN hoặc INSTITUTIONALPLAN. 
+
+```Java
+public class GenerateBill {
+    public static void main(String args[]) throws IOException {
+        GetPlanFactory planFactory = new GetPlanFactory();
+ 
+        System.out.print("Nhap ten cua plan de tao hoa don: ");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+ 
+        String planName = br.readLine();
+        System.out.print("Nhap so luong don vi cho hoa don: ");
+        int unit = Integer.parseInt(br.readLine());
+ 
+        Plan p = planFactory.getPlan(planName);
+ 
+        System.out.print("Hoa don " + planName + " cua  " + unit + " don vi la: ");
+        p.getRate();
+        p.calculateBill(unit);
+    }
+}
+```
+
+Output:
+
+```
+Nhap ten cua plan de tao hoa don: DOMESTICPLAN
+Nhap so luong don vi cho hoa don: 20
+Hoa don DOMESTICPLAN cua  20 don vi la: 70.0
+```
+
 
 ### 1.2.3. Singleton
 
+- Singleton Pattern là một mẫu thiết kế (design pattern) được sử dụng để bảo đảm rằng mỗi một lớp (class) chỉ có được một thể hiện (instance) duy nhất và mọi tương tác đều thông qua thể hiện này.
+
+- Singleton Pattern cung cấp một phương thức khởi tạo private, duy trì một thuộc tính tĩnh để tham chiếu đến một thể hiện của lớp Singleton này. Nó cung cấp thêm một phương thức tĩnh trả về thuộc tính tĩnh này.
+
+Bài toán thực tế
+- Bạn gặp một sự cố về hiệu năng hệ thống. Cùng một thời điểm, các bạn đang sử dụng một lúc nhiều đối tượng và chúng làm tiêu tốn quá nhiều tài nguyên của hệ thống. Đây là vấn đề mà bạn cần phải khắc phục, và Singleton pattern có thể giúp bạn thực hiện được điều đó.
+
+- Mẫu duy nhất Singleton chắc chắn rằng bạn có thể khởi tạo chỉ duy nhất một đối tượng cho một lớp. Nếu bạn không sử dụng mẫu thiết kế này, toán tử new như thường sử dụng, sẽ tạo ra liên tiếp nhiều đối tượng mới
+
+- Bạn sử dụng mẫu Singleton khi bạn muốn hạn chế việc sử dụng tài nguyên hoặc khi bạn phải xử lý 1 đối tượng nhạy cảm mà dữ liệu của nó không thể chia sẻ cho mọi thể hiện.
+- Bất cứ khi nào bạn thật sự cần duy nhất 1 thể hiện của 1 lớp, hãy nghĩ tới mẫu Singleton thay vì dùng toán tử new.
+
+Cài đặt
+
+![](media/singleton.png)
+
+```Java
+class Singleton {
+
+    private static Singleton instance;
+
+    private Singleton() {
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+
+public class ClassSingleton {
+
+    public static void main(String[] args) {
+        System.out.println("--- Singleton Pattern ---");
+        Singleton single1 = Singleton.getInstance();
+        Singleton single2 = Singleton.getInstance();
+        if (single1.equals(single2)) {
+            System.out.println("Unique Instance");
+        }
+    }
+}
+```
+
 ### 1.2.4. Builder
+- Builder pattern là một mẫu thiết kế thuộc "Nhóm khởi tạo" (Creational Pattern). Mẫu thiết kế này cho phép lập trình viên tạo ra những đối tượng phức tạp nhưng chỉ cần thông qua các câu lệnh đơn giản để tác động nên các thuộc tính của nó. 
+
+- Một lập trình viên muốn sử dụng Builder pattern khi:
+  - Anh ấy muốn thay đổi thiết kế cho việc lồng nhau của các hàm khởi tạo (Telescoping Constructor Pattern). Vấn đề này phát sinh khi lập trình viên làm việc với một lớp mà có chứa rất nhiều các thuộc tính và cần phải tạo ra nhiều hàm khởi tạo với số lượng các thuộc tính tăng dần.
+  - Anh ấy cần tạo ra một đối tượng phức tạp, một đối tượng mà thuật toán để tạo tạo lập các thuộc tính là độc lập đối với các thuộc tính khác.
+
+Cài đặt
+
+![](https://www.tutorialspoint.com/design_pattern/images/builder_pattern_uml_diagram.jpg)
+
+Xét một trường hợp kinh doanh của nhà hàng thức ăn nhanh trong đó một bữa ăn điển hình có thể là burger và cold drink. Burger có thể là Veg Burger hoặc Chicken Burger và sẽ được đóng gói bởi một gói. Đồ uống lạnh có thể là coke hoặc pepsi và sẽ được đóng gói trong chai.
+
+Chúng tôi sẽ tạo ra một interface Item đại diện cho các mặt hàng thực phẩm như burger và cold drink và các concrete class thực hiện interface Item và và interface Packing đại diện cho việc đóng gói các mặt hàng thực phẩm và các class concrete thực hiện interface Packing vì burger sẽ được đóng gói trong Wrapprt và cold drinks sẽ được đóng gói trong bottle.
+
+Sau đó, chúng ta tạo một lớp Meal có ArrayList of Item và MealBuilder để xây dựng các loại đối tượng Meal khác nhau bằng cách kết hợp Item. BuilderPotypeDemo, lớp demo ta sẽ sử dụng MealBuilder để xây dựng Meal.
+
+Step 1
+
+- Create an interface Item representing food item and packing.
+- Item.java
+
+```Java
+public interface Item {
+   public String name();
+   public Packing packing();
+   public float price();	
+}
+```
+- Packing.java
+
+```Java
+public interface Packing {
+   public String pack();
+}
+```
+
+Step 2
+- Create concrete classes implementing the Packing interface.
+- Wrapper.java
+
+```Java
+public class Wrapper implements Packing {
+
+   @Override
+   public String pack() {
+      return "Wrapper";
+   }
+}
+```
+
+- Bottle.java
+
+```Java
+public class Bottle implements Packing {
+
+   @Override
+   public String pack() {
+      return "Bottle";
+   }
+}
+```
+
+
+Step 3
+
+- Create abstract classes implementing the item interface providing default functionalities.
+
+- Burger.java
+
+```Java
+public abstract class Burger implements Item {
+
+   @Override
+   public Packing packing() {
+      return new Wrapper();
+   }
+
+   @Override
+   public abstract float price();
+}
+```
+
+- ColdDrink.java
+
+```Java
+public abstract class ColdDrink implements Item {
+
+	@Override
+	public Packing packing() {
+       return new Bottle();
+	}
+
+	@Override
+	public abstract float price();
+}
+```
+
+Step 4
+
+- Create concrete classes extending Burger and ColdDrink classes
+
+- VegBurger.java
+
+```Java
+public class VegBurger extends Burger {
+
+   @Override
+   public float price() {
+      return 25.0f;
+   }
+
+   @Override
+   public String name() {
+      return "Veg Burger";
+   }
+}
+```
+
+- ChickenBurger.java
+
+```Java
+public class ChickenBurger extends Burger {
+
+   @Override
+   public float price() {
+      return 50.5f;
+   }
+
+   @Override
+   public String name() {
+      return "Chicken Burger";
+   }
+}
+```
+
+- Coke.java
+
+```Java
+public class Coke extends ColdDrink {
+
+   @Override
+   public float price() {
+      return 30.0f;
+   }
+
+   @Override
+   public String name() {
+      return "Coke";
+   }
+}
+```
+
+- Pepsi.java
+
+```Java
+public class Pepsi extends ColdDrink {
+
+   @Override
+   public float price() {
+      return 35.0f;
+   }
+
+   @Override
+   public String name() {
+      return "Pepsi";
+   }
+}
+```
+
+Step 5
+
+- Create a Meal class having Item objects defined above.
+
+- Meal.java
+
+```Java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Meal {
+   private List<Item> items = new ArrayList<Item>();	
+
+   public void addItem(Item item){
+      items.add(item);
+   }
+
+   public float getCost(){
+      float cost = 0.0f;
+      
+      for (Item item : items) {
+         cost += item.price();
+      }		
+      return cost;
+   }
+
+   public void showItems(){
+   
+      for (Item item : items) {
+         System.out.print("Item : " + item.name());
+         System.out.print(", Packing : " + item.packing().pack());
+         System.out.println(", Price : " + item.price());
+      }		
+   }	
+}
+```
+
+Step 6
+
+- Create a MealBuilder class, the actual builder class responsible to create Meal objects.
+
+- MealBuilder.java
+
+```Java
+public class MealBuilder {
+
+   public Meal prepareVegMeal (){
+      Meal meal = new Meal();
+      meal.addItem(new VegBurger());
+      meal.addItem(new Coke());
+      return meal;
+   }   
+
+   public Meal prepareNonVegMeal (){
+      Meal meal = new Meal();
+      meal.addItem(new ChickenBurger());
+      meal.addItem(new Pepsi());
+      return meal;
+   }
+}
+```
+
+Step 7
+
+- BuiderPatternDemo uses MealBuider to demonstrate builder pattern.
+
+- BuilderPatternDemo.java
+
+```Java
+public class BuilderPatternDemo {
+   public static void main(String[] args) {
+   
+      MealBuilder mealBuilder = new MealBuilder();
+
+      Meal vegMeal = mealBuilder.prepareVegMeal();
+      System.out.println("Veg Meal");
+      vegMeal.showItems();
+      System.out.println("Total Cost: " + vegMeal.getCost());
+
+      Meal nonVegMeal = mealBuilder.prepareNonVegMeal();
+      System.out.println("\n\nNon-Veg Meal");
+      nonVegMeal.showItems();
+      System.out.println("Total Cost: " + nonVegMeal.getCost());
+   }
+}
+```
+
+Step 8
+
+- Verify the output.
+
+```
+Veg Meal
+Item : Veg Burger, Packing : Wrapper, Price : 25.0
+Item : Coke, Packing : Bottle, Price : 30.0
+Total Cost: 55.0
+
+Non-Veg Meal
+Item : Chicken Burger, Packing : Wrapper, Price : 50.5
+Item : Pepsi, Packing : Bottle, Price : 35.0
+Total Cost: 85.5
+```
+
 
 ### 1.2.5. Composite
+
+- Composite Pattern là một mẫu cấu trúc (Structural Pattern).
+
+- Composite Pattern cho phép tương tác với tất cả các đối tượng tương tự nhau giống như là các đối tượng đơn hoặc collections.
+
+- Ví dụ: Đối tượng File sẽ là 1 đối tượng đơn nếu bên trong nó không có file nào khác, nhưng đối tượng file sẽ được đối xử giống như 1 collections nếu bên trong nó lại có những File khác.
+
+- Khi tính kích thước của File ta sẽ cần tính kích thước của tất cả các file bên trong nó.
+
+UML Diagrams
+![](https://stackjava.com/wp-content/uploads/2017/12/composite-pattern-1-768x576.png)
+
+- **Component** (Thành phần):
+
+    - Khai báo interface hoặc abstract chung cho các thành phần đối tượng.
+    Chứa các method thao tác chung của các thành phần đối tượng.
+
+- **Leaf** (Lá):
+
+  - Biểu diễn các đối tượng lá (ko có con) trong thành phần đối tượng.
+
+- **Composite** (Hỗn hợp):
+
+  - Định nghĩa một thao tác cho các thành phần có thành phần con.
+    Lưu trữ thành phần con.
+    Thực thi sự quản lý các thành phần con của giao diện Component.
+
+Ví dụ
+
+- 1 project là 1 tập hợp nhiều tác vụ (Task) con, đồng thời bản thân project cũng là 1 task lớn.
+
+- Ta cần tính tống thời gian của project thông qua thời gian của các task con.
+
+![](https://stackjava.com/wp-content/uploads/2017/12/composite-pattern-2.jpg)
+
+- Tại TaskItem.java
+
+```Java
+    public abstract class TaskItem {
+        public abstract double getTime();
+    }
+```
+
+- Tại Task.java
+
+```Java
+    public class Task extends TaskItem {
+      String name;
+      double time;
+      public Task() {
+      }
+      public Task(String name, double time) {
+        this.name = name;
+        this.time = time;
+      }
+      public String getName() {
+        return name;
+      }
+      public void setName(String name) {
+        this.name = name;
+      }
+      @Override
+      public double getTime() {
+        return time;
+      }
+      public void setTime(double time) {
+        this.time = time;
+      }
+    }
+```
+
+- Tại Project.java
+
+```Java
+    public class Project extends TaskItem {
+        
+        String name;
+        ArrayList<TaskItem> subTask = new ArrayList<>();
+        
+        public Project() {
+        }
+        
+        public Project(String name, ArrayList<TaskItem> subTask) {
+            this.name = name;
+            this.subTask = subTask;
+        }
+        
+        public String getName() {
+            return name;
+        }
+        
+        public void setName(String name) {
+            this.name = name;
+        }
+        
+        public ArrayList<TaskItem> getSubTask() {
+            return subTask;
+        }
+        
+        public void setSubTask(ArrayList<TaskItem> subTask) {
+            this.subTask = subTask;
+        }
+        
+        @Override
+        public double getTime() {
+            double time = 0;
+            for (int i = 0; i < subTask.size(); i++) {
+                time += subTask.get(i).getTime();
+            }
+            return time;
+        }
+        
+        public void addTask(TaskItem taskItem) {
+            if (subTask.contains(taskItem) == false) {
+                subTask.add(taskItem);
+            }
+        }
+        public void removeTask(TaskItem taskItem) {
+            subTask.remove(taskItem);
+        }
+    }
+```
+
+- Demo
+
+```Java
+    public class MainApp {
+      public static void main(String[] args) {
+        Task task1 = new Task("requirement", 50);
+        Task task2 = new Task("analysis", 34);
+        Task task3 = new Task("design", 65);
+        Task task4 = new Task("implement", 23);
+        Task task5 = new Task("test", 65);
+        Task task6 = new Task("maintain", 32);
+        ArrayList<TaskItem> subTask = new ArrayList<>();
+        subTask.add(task1);
+        subTask.add(task2);
+        subTask.add(task3);
+        subTask.add(task4);
+        subTask.add(task5);
+        subTask.add(task6);
+        Project project = new Project("quan li diem", subTask);
+        // tinh tong thoi gian du an
+        System.out.println("total time: " +project.getTime());
+        // tinh tong thoi gian du an sau khi bo task: maintain
+        project.removeTask(task6);
+        System.out.println("total time after remove maintain task: " +project.getTime());
+      }
+    }
+```
+
+- Kết quả:
+
+```
+total time: 269.0
+total time after remove maintain task: 237.0
+```
+
 
 ## 1.3. Nguyên tắc lập trình
 
 ### 1.3.1. SOLID
 
+- Tập hợp những nguyên tắc trong lập trình hướng đối tượng. Các chữ cái đầu hợp lại thành SOLID.
+
+- **SRP (Single Responsibility Principle)** – “Một class chỉ được có 1 nhiệm vụ” hay nói cách khác, “nếu muốn chỉnh sửa class thì chỉ được phép có 1 và chỉ 1 lý do”.
+
+- **OCP (Open/closed principle)** – “Mở class khi cần mở rộng nó, đóng class khi cần chỉnh sửa nó”.
+
+- **LSP (Liskov substitution principle)** – “Subtype phải luôn có thể được thay thế bằng supertype”.
+
+- **ISP (Interface segregation principle)** – “Việc dùng nhiều interface cho các client khác nhau, tốt hơn là việc chỉ dùng 1 interface cho cùng lúc nhiều mục đích” hay nói cách khác “Không được phép hạn chế access vào những method mà client không sử dụng”.
+
+- **DIP (Dependency inversion principle)** – “Module tầng trên không được phụ thuộc vào module tầng dưới. Bất cứ module nào cũng phải phụ thuộc vào cái trừu tượng, không phải vào cái cụ thể”.
+
 ### 1.3.2. DRY
+
+- Viết tắt của “Don’t repeat yourself” – với ý nghĩa là “Đừng lặp lại những gì giống nhau”.
+
+- Khi nguyên tắc này được áp dụng tốt, dù ta có thay đổi 1 phần thì những phần không liên quan cũng sẽ không bị thay đổi theo. Hơn nữa, những phần có liên quan sẽ được thay đổi cùng 1 lượt, giúp ích rất nhiều cho cả khâu estimate và khâu thực hiện.
 
 ### 1.3.3. KISS
 
+- Viết tắt của “Keep it simple, stupid” – “Cứ đơn giản thôi, đồ ngu!”. Đây là 1 triết lí của Hải quân Mỹ.
+
+-  "Keep it simple, silly", "keep it short and simple", "keep it simple and straightforward", "keep it small and simple", or "keep it stupid simple"
+
 ### 1.3.4. YAGNI
+
+- Viết tắt của “You ain’t gonna need it” – Cái (chức năng, phần) ấy rồi sẽ không cần thiết.
+
+- Đó là một câu khẩu ngữ nhắc nhở người lập trình rằng trong quy trình Extreme Programming (lập trình cực hạn) thì : “Chưa phải lúc cần thiết thì chưa được phép làm.”
 
 ### 1.3.5. Do the simplest thing that could possibly work
 
+![](http://www.agilenutshell.com/assets/xpisms/simplest-thing.png)
+
+- Phần mềm có thể phức tạp và dễ dàng khiến các đội cảm thấy choáng ngợp. Để làm dịu mọi thứ và giúp giải quyết sự phức tạp quá mức, một trong những câu thần chú của XP là làm điều đơn giản nhất có thể có thể làm việc.
+
+- Đối với các lập trình viên, điều đó có thể có nghĩa là bắt đầu với một bài kiểm tra đơn vị đơn giản và chỉ thêm độ phức tạp bổ sung khi nó đang hoạt động.
+
+- Đối với thiết kế có thể có nghĩa là bắt đầu với một cái gì đó đơn giản đến nực cười, và thêm sự phức tạp chỉ trong thời gian, nếu câu chuyện tiếp theo đảm bảo nó.
+
+- Giá trị của sự đơn giản là giữ cho mọi thứ đơn giản nhất có thể và lấy đi bất cứ thứ gì không thiết yếu mà không làm tăng thêm giá trị.
+
+>    There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.
+    C. A. R. Hoare
+
 ### 1.3.6. Clean code là gì? Ít nhất 5 cách để clean code?
+
+- Có nhiều định nghĩa về clean code, tùy mỗi người mỗi cách nhìn khác nhau:
+  - `Clean code does one thing well.` (Bjarne Stroustrup)
+  - `Clean code is simple and direct, clean code read like well-written prose.` (Grady Booch)
+  - `Clean code can be read, clean code should be literate. It has meaningful names` (Dave Thomas)
+  - `Clean code always looks like it was written by someone who cares.` (Micheal Feathers)
+  - `Reduced duplication, high expressiveness, and early building of simple abstractions.` (Ron Jeffries)
+  - `You know you are working on clean code when each routine you reads turns out to be pretty much what you expected.` (Ward Cunningham)
+
+- Đối với tôi, clean code là code sao cho rõ ràng người đọc dễ hiểu, dễ debug, dễ bảo trì, nâng cấp
+
+- Các cách để Clean code:
+  - Sử dụng meaningful names: tên tiết lộ ý định, tên dễ đọc, tên dễ tìm kiếm 
+  - Member prefixes: tránh các ký tự gạch dưới khi đặt tên biến, nên chọn convention rồi follow
+  - Hungarian: nên tránh thêm kiểu dữ liệu vào sau tên biến
+  - Class name: tên class không nên là động từ, phải là danh từ:
+    - Thêm cái nữa là giả sử từ Address. Thấy hay có cái như AccountAddress ClientAddress MACAddress. Nó khá dư thừa.
+
+    - Tốt hơn nên sử dụng luôn MAC thay cho MACAdress. Còn ClientAddress hay AccountAddress thì nên là Client.Address thay cho Client.ClientAddress. Tên class nó thể hiện rồi mà.
+
+    - Trong trường hợp cùng một class mà có 2 property liên quan đến address như Client.HouseAddress và Client.CompanyAddress thì nên dùng 😀
+
+  - Method name: nên là động từ 
+  - Functions: một hàm nên có tầm 20 dòng, 150 kí tự là đẹp, 1 method nên làm đúng 1 việc mà tên hàm đưa ra
 
 # 2. Bài tập
 
@@ -338,3 +1194,11 @@ Trong folder `ticketSLA` là 1 project java đã được `init` sẵn. Bạn h�
 -   https://hackernoon.com/probabilistic-data-structures-bloom-filter-5374112a7832
 
 -   https://medium.com/techlog/cuckoo-filter-vs-bloom-filter-from-a-gophers-perspective-94d5e6c53299
+
+- https://vnoi.info/wiki/algo/data-structures/trie
+
+- https://viblo.asia/p/tim-hieu-singleton-pattern-MVpeKPAOkKd
+
+- https://viblo.asia/p/design-patterns-singleton-pattern-maGK7zra5j2
+
+- https://stackjava.com/design-pattern/composite-pattern.html
