@@ -1,0 +1,102 @@
+package com.cong.predictiveText;
+
+import java.util.BitSet;
+import java.util.Random;
+import java.util.Iterator;
+
+public class BloomFilter implements Dictionary{
+    private BitSet hashes;
+    private RandomInRange prng;
+    private int k; // Number of hash functions
+    private static final double LN2 = 0.6931471805599453; // ln(2)
+    private static final int MAX_ELEMENTS = 1500000;
+
+    private BloomFilter(){}
+
+    /**
+     * Create a new bloom filter.
+     * @param n Expected number of elements
+     * @param m Desired size of the container in bits
+     **/
+    private BloomFilter(int n, int m) {
+        k = (int) Math.round(LN2 * m / n);
+        if (k <= 0) k = 1;
+        this.hashes = new BitSet(m);
+        this.prng = new RandomInRange(m, k);
+    }
+
+    /**
+     * Create a bloom filter of 1Mib.
+     * @param n Expected number of elements
+     **/
+    private BloomFilter(int n) {
+        this(n, 1024*1024*8);
+    }
+
+    private static class SingletonHelper{
+        private static final BloomFilter INSTANCE = new BloomFilter(MAX_ELEMENTS);
+    }
+
+    public static BloomFilter getInstance(){
+        return BloomFilter.SingletonHelper.INSTANCE;
+    }
+
+    /**
+     * Add an element to the container
+     **/
+
+
+    public void add(String key) {
+        prng.init(key);
+        for (RandomInRange r : prng) hashes.set(r.value);
+    }
+
+    /**
+     * Returns true if the element is in the container.
+     * Returns false with a probability ≈ 1-e^(-ln(2)² * m/n)
+     * if the element is not in the container.
+     **/
+    public boolean contains(String key) {
+        prng.init(key);
+        for (RandomInRange r : prng)
+            if (!hashes.get(r.value))
+                return false;
+        return true;
+    }
+
+    private class RandomInRange
+            implements Iterable<RandomInRange>, Iterator<RandomInRange> {
+
+        private Random prng;
+        private int max; // Maximum value returned + 1
+        private int count; // Number of random elements to generate
+        private int i = 0; // Number of elements generated
+        public int value; // The current value
+
+        RandomInRange(int maximum, int k) {
+            max = maximum;
+            count = k;
+            prng = new Random();
+        }
+        public void init(Object o) {
+            prng.setSeed(o.hashCode());
+        }
+        public Iterator<RandomInRange> iterator() {
+            i = 0;
+            return this;
+        }
+        public RandomInRange next() {
+            i++;
+            value = prng.nextInt() % max;
+            if (value<0) value = -value;
+            return this;
+        }
+        public boolean hasNext() {
+            return i < count;
+        }
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+    }
+}
+

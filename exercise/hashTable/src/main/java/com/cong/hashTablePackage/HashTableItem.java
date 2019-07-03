@@ -1,4 +1,4 @@
-package com.cong.hashtable;
+package com.cong.hashTablePackage;
 
 public class HashTableItem {
     String key;
@@ -23,5 +23,15 @@ public class HashTableItem {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return key + ":" + value;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return key.equals(((HashTableItem) obj).getKey()) && value.equals(((HashTableItem) obj).getValue());
     }
 }
