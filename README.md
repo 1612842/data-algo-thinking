@@ -1225,13 +1225,15 @@ Làm chương trình Java cung cấp 2 tính năng:
 
 **Tip**: Nên định nghĩa 1 interface là `Dictionary` với method `public boolean contains(String word)` để implement lại.
 
+[Solution](exercise/predictiveText/src/main/java/com/cong/predictiveText)
+
 ## 2.2. Hash Tables
 
 - Tham khảo [repo sau](https://github.com/jamesroutley/write-a-hash-table).
 - Viết lại hoàn toàn bằng Java một hash table tương tự.
 - Hiện thực ít nhất 3 cách giải quyết đụng độ.
 
-- [Solution](exercise/hashTable/)
+[Solution](exercise/hashTable/src/main/java/com/cong)
 
 ## 2.3. Tính thời gian xử lý khiếu nại
 
@@ -1247,6 +1249,7 @@ Trong folder `ticketSLA` là 1 project java đã được `init` sẵn. Bạn h�
 - Nếu có bất kì thắc mắc nào, vui lòng liên hệ `thinhda`.
 - `Benchmark` cho hàm `calculate`.
 
+[Solution](exercise/ticketSLA/src)
 
 # 3. Nguồn tham khảo
 - [Principles of Good Programming](https://www.artima.com/weblogs/viewpost.jsp?thread=331531)
