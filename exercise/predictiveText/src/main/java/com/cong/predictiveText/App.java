@@ -9,13 +9,13 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 public class App {
+    private static final int MAX_ITEM_DISPLAY = 10;
     private JTextField txtInput;
     private JPanel panelMain;
     private JButton btnSearch;
     private JScrollPane scrollListPredictive;
     private JList listPredictiveText;
     private JComboBox cbxSearchMethod;
-    private static final int MAX_ITEM_DISPLAY = 10;
 
     public App() {
 
@@ -23,8 +23,8 @@ public class App {
 
         btnSearch.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String key = (listPredictiveText.getSelectedIndex() == -1)?txtInput.getText():listPredictiveText.getSelectedValue().toString();
-                if(key.equals("") == false){
+                String key = (listPredictiveText.getSelectedIndex() == -1) ? txtInput.getText() : listPredictiveText.getSelectedValue().toString();
+                if (key.equals("") == false) {
                     DictionaryList dictionaryList = new DictionaryList();
 
                     if (cbxSearchMethod.getSelectedIndex() == 1) {
@@ -38,18 +38,16 @@ public class App {
                     long startTime = System.nanoTime();
                     boolean checkExist = dictionaryList.contains(key);
                     long endTime = System.nanoTime();
-                    long benchmark = endTime-startTime;
+                    long benchmark = endTime - startTime;
 
 
-                    if(checkExist){
-                        JOptionPane.showMessageDialog(null, key + " exist by "+method+" in "+benchmark+" ns");
+                    if (checkExist) {
+                        JOptionPane.showMessageDialog(null, key + " exist by " + method + " in " + benchmark + " ns");
+                    } else {
+                        JOptionPane.showMessageDialog(null, key + " does not exist by " + method + " in " + benchmark + " ns");
                     }
-                    else {
-                        JOptionPane.showMessageDialog(null, key + " does not exist by "+method +" in "+benchmark+" ns");
-                    }
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Input can not be null");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Input not null");
                 }
             }
         });
@@ -67,14 +65,13 @@ public class App {
                 warn();
             }
 
-            public void warn(){
-                if(txtInput.getText().equals("") == false){
+            public void warn() {
+                if (txtInput.getText().equals("") == false) {
                     listPredictiveText.setEnabled(true);
                     List<String> list = Trie.getInstance().query(txtInput.getText());
                     int maxItemDisplay = list.size() > MAX_ITEM_DISPLAY ? MAX_ITEM_DISPLAY : list.size();
                     listPredictiveText.setListData(list.subList(0, maxItemDisplay).toArray());
-                }
-                else{
+                } else {
                     listPredictiveText.setEnabled(false);
                     listPredictiveText.setListData(new String[]{""});
                 }
@@ -88,11 +85,11 @@ public class App {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        frame.setSize(400,400);
+        frame.setSize(400, 400);
         frame.setLocationRelativeTo(null);
     }
 
-    private void prepareGUI(){
+    private void prepareGUI() {
         listPredictiveText.setEnabled(false);
         listPredictiveText.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listPredictiveText.setLayoutOrientation(JList.VERTICAL);
