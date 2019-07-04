@@ -1,3 +1,32 @@
+<!-- TOC -->
+- [1. Khái niệm](#1-Kh%C3%A1i-ni%E1%BB%87m)
+  - [1.1. Cấu trúc dữ liệu](#11-C%E1%BA%A5u-tr%C3%BAc-d%E1%BB%AF-li%E1%BB%87u)
+    - [1.1.1. Bloom Filters - Membership](#111-Bloom-Filters---Membership)
+    - [1.1.2. Cuckoo filter](#112-Cuckoo-filter)
+    - [1.1.3. Count min sketch - Frequency](#113-Count-min-sketch---Frequency)
+    - [1.1.4. HyperLogLog - Cardinality](#114-HyperLogLog---Cardinality)
+    - [1.1.5. Trie là gì? Ứng dụng như thế nào?](#115-Trie-l%C3%A0-g%C3%AC-%E1%BB%A8ng-d%E1%BB%A5ng-nh%C6%B0-th%E1%BA%BF-n%C3%A0o)
+  - [1.2. Design Pattern](#12-Design-Pattern)
+    - [1.2.1. Dependency injection](#121-Dependency-injection)
+    - [1.2.2. Factory](#122-Factory)
+    - [1.2.3. Singleton](#123-Singleton)
+    - [1.2.4. Builder](#124-Builder)
+    - [1.2.5. Composite](#125-Composite)
+  - [1.3. Nguyên tắc lập trình](#13-Nguy%C3%AAn-t%E1%BA%AFc-l%E1%BA%ADp-tr%C3%ACnh)
+    - [1.3.1. SOLID](#131-SOLID)
+    - [1.3.2. DRY](#132-DRY)
+    - [1.3.3. KISS](#133-KISS)
+    - [1.3.4. YAGNI](#134-YAGNI)
+    - [1.3.5. Do the simplest thing that could possibly work](#135-Do-the-simplest-thing-that-could-possibly-work)
+    - [1.3.6. Clean code là gì? Ít nhất 5 cách để clean code?](#136-Clean-code-l%C3%A0-g%C3%AC-%C3%8Dt-nh%E1%BA%A5t-5-c%C3%A1ch-%C4%91%E1%BB%83-clean-code)
+- [2. Bài tập](#2-B%C3%A0i-t%E1%BA%ADp)
+  - [2.1. Predictive text](#21-Predictive-text)
+  - [2.2. Hash Tables](#22-Hash-Tables)
+  - [2.3. Tính thời gian xử lý khiếu nại](#23-T%C3%ADnh-th%E1%BB%9Di-gian-x%E1%BB%AD-l%C3%BD-khi%E1%BA%BFu-n%E1%BA%A1i)
+- [3. Nguồn tham khảo](#3-Ngu%E1%BB%93n-tham-kh%E1%BA%A3o)
+<!-- /TOC -->
+
+
 # 1. Khái niệm
 
 ## 1.1. Cấu trúc dữ liệu
@@ -1227,6 +1256,29 @@ Làm chương trình Java cung cấp 2 tính năng:
 
 [Solution](exercise/predictiveText/src/main/java/com/cong/predictiveText)
 
+**Hướng giải quyết:**
+-   Định hướng các thao tác cần xử lý:
+    -   Đọc file
+    -   Xử lí dữ liệu, chuẩn hóa các từ
+    -   Xây dựng class để kiểm tra tồn tại từ trong văn bản
+    -   Duyệt và thêm các từ vào cấu trúc class đã xây dựng
+    -   Xây dựng GUI cho phép nhập, gợi ý và kiểm tra xem từ nhập vào có tồn tại hay không?
+-   Đọc file và xử lí chuỗi: 
+    -   Xây dụng class DataReader có nhiệm vụ đọc tất cả các file trong 1 thư mục, đọc từng dòng và lưu vào string, kết hợp với class DataNormalizer cắt chuỗi, chuẩn hóa và lưu từng từ vào Set<String>, duyệt các từ trong Set<String> add vào class Bloom Filter và class Trie, đây là 2 class tìm kiếm từ sẽ đề cập sau
+-  Với tính năng kiểm tra từ tồn tại:
+   -  Ta lựa chọn Trie và Bloom Filter, một cách chính xác hoàn toàn và một cách có tỉ lệ false positive nhất định. 
+   -  2 class này kế thừa class Dictionary
+   -  Sử dụng 2 mẫu thiết kế là Dependency Injection và Singleton. Mẫu Dependency injection áp dụng với class DictionaryList khi cho phép set chọn loại kiểm tra từ tồn tại là BloomFilter hoặc Trie. Mẫu Singleton chỉ cho phép mỗi class BloomFilter và Trie chỉ có duy nhất 1 thể hiện
+- Xây dựng GUI:
+  - Sử dụng thư viện mặc định Swing của Java tạo GUI đơn giản
+    
+    ![](media/Screenshot&#32;from&#32;2019-07-04&#32;12-36-32.png)
+
+  -   Có khung nhập input với JTextField, gợi ý với JList, JComboBox cho phép chọn loại kiểm tra tồn tại và JButton để bắt sự kiện search
+- Output và predictive text:
+  - Output in ra xem từ đó có tồn tại không, bởi thuật toán nào và thời gian chạy bao nhiêu
+  - Predictive text: là tập hợp các từ sau khi thực hiện DFS trên Trie sau đó hiển thị lên JList
+
 ## 2.2. Hash Tables
 
 - Tham khảo [repo sau](https://github.com/jamesroutley/write-a-hash-table).
@@ -1234,6 +1286,40 @@ Làm chương trình Java cung cấp 2 tính năng:
 - Hiện thực ít nhất 3 cách giải quyết đụng độ.
 
 [Solution](exercise/hashTable/src/main/java/com/cong)
+
+**Hướng giải quyết:**
+
+-   Xây dựng class HashTable và class HashTableItem, HashTable sẽ chứa 1 arraylist HashTableItem
+-   Xử lí đụng độ: **Separate chaining** và **Open addressing**. Ở đây ta sử dụng **Open addressing**, địa chỉ mở nhằm mục đích giải quyết sự không hiệu quả không gian của **Separate chaining**. Khi đụng độ xảy ra, item đụng độ được đặt trong một số bucket khác trong bảng. Bucket mà item được đặt vào được chọn theo một số quy tắc được xác định trước, có thể được lặp lại khi tìm kiếm item. Có ba phương pháp phổ biến để chọn bucket để chèn item đụng độ vào:
+  
+    -   **Linear probing**:
+        -   Khi đụng độ xảy ra, index tăng và item được đặt vào bucket kế bên trong array
+        -   Insert: hash key để tìm bucket index. Nếu bucket trống, đặt item vào, nếu đụng độ, lặp lại tăng index cho đến khi gặp bucket trống
+        -   Search: hash key để tìm bucket, lặp lại việc tăng index, so sánh key, cho đến khi tìm được bucket trống hoặc matching key thì dừng, trả về giá trị không thì trả về null
+        -   Delete: hash key để tìm bucket index, lặp lại việc tăng index, so key để tìm key xóa, nếu gặp key matching thì xóa nó.
+        -   Linear probing offers good [cache performance](https://en.wikipedia.org/wiki/Locality_of_reference), nhưng lại gặp vấn đề về clustering issues. Khi đặt các item đụng độ dẫn đến các bucket chứa các item kéo dài liên tục, khi search, insert, delete phải lặp nhiều lần để tìm key
+  
+    -   **Quadratic probing**:
+        -   Giống với Linear probing nhưng thay vì đặt item đụng độ vào kế bên, ta đặt theo qui luật sau: `i, i + 1, i + 4, i + 9, i + 16, ...` với i là original hash của key
+        -   Insert, Search, Delete tương tự Linear probing
+        -   Quadratic probing giảm thiểu việc clustering mà vẫn cung cấp cache performance tốt
+  
+    -  **Double hashing**:
+       -  Mục đích chính là giải quyết clustering.
+       -  Sử dụng một hàm hash nữa để chọn index mới cho item
+       -  Sử dụng hàm hash cho chúng ta một bucket mới, index này nên phân bổ đều các bucket
+       -  Giải quyết được clustering nhưng cũng mất đi cache performance khỏi locality of reference.
+       -  Đây là cách thông dụng trong quản lý đụng độ trong hash table thông dụng
+
+-   Xử lí resize lại kích thước HashTable:
+    -   HashTable ban đầu có kích thước cố định các buckets, càng nhiều item được add vào thì bảng càng đầy dẫn đến vấn đề sau:
+        -   Hiệu năng giảm do tỉ lệ đụng độ cao
+        -   Kích thước cố định nên nếu ta add thêm quá nhiều sẽ không được nữa 
+    -  Chúng ta có thể lưu kích thước item array khi bảng dần đầy. Ta tính tỉ lệ filled buckets/total buckets. Sau đó resize theo tỉ lệ sau:
+       -  up nếu tỉ lệ > 0.7
+       -  down nếu tỉ lệ < 0.1
+    -  Để resize, ta tạo HashTable với kích thước bằng một nửa hoặc gấp đôi hiện tại sau đó insert tất cả items chưa delete vào bảng đó
+    -  Kích thước array mới nên là 1 số nguyên tố hoặc nửa size hiện tại. Chúng ta lưu trước base size, khi size up, tăng gấp đôi base size, và tìm số nguyên tố lớn hơn gần nhất, khi size down, giảm 1 nữa và tìm số nguyên tố lớn hơn gần nhất
 
 ## 2.3. Tính thời gian xử lý khiếu nại
 
@@ -1250,6 +1336,18 @@ Trong folder `ticketSLA` là 1 project java đã được `init` sẵn. Bạn h�
 - `Benchmark` cho hàm `calculate`.
 
 [Solution](exercise/ticketSLA/src)
+
+**Hướng giải quyết**:
+
+-   Xây dựng một abstract class đại điện cho các kiểu thời gian nghỉ (ngoài giờ làm việc), kèm theo là các lớp kế thừa cụ thể cho mỗi trường hợp:
+
+    ![](media/Untitled&#32;Diagram.png)
+
+-   Ở mỗi class concrete TimeOffAtNoon, TimeOffAtNight, TimeOffAtWeekend, ta cài đặt hàm getNum để lấy được số lần nghỉ như vậy giữa 2 khoảng thời gian, getDurationToMinus có nhiệm vụ nhân số lần nghỉ ở getNum với thời gian nghỉ 1 lần tương ứng với mỗi loại thời gian nghỉ. Sau này nếu có thay đổi ta chỉ việc thêm các class con kết thừa TimeOffType
+-   Class WorkingTime có nhiệm vụ add các TimeOffType và lấy khoảng thời gian giữa bắt đầu nộp đơn và kết thúc nộp đơn trừ cho tất cả các loại TimeOffType ta được thời gian Working của team CS
+-   Demo:
+
+    ![](media/Screenshot&#32;from&#32;2019-07-04&#32;15-03-13.png)
 
 # 3. Nguồn tham khảo
 - [Principles of Good Programming](https://www.artima.com/weblogs/viewpost.jsp?thread=331531)

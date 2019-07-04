@@ -49,17 +49,17 @@ public class HashTable {
         }
         HashTableItem item = new HashTableItem(key, value);
         int index = hashFunction.getHash(item.getKey(), 0);
-        HashTableItem cur_item = hashTableItems.get(index);
+        HashTableItem curItem = hashTableItems.get(index);
         int i = 1;
-        while (cur_item != null) {
-            if (cur_item != DELETED_ITEM) {
-                if (cur_item.getKey().equals(key)) {
+        while (curItem != null) {
+            if (curItem != DELETED_ITEM) {
+                if (curItem.getKey().equals(key)) {
                     hashTableItems.set(index, item);
                     return;
                 }
             }
             index = hashFunction.getHash(item.getKey(), i);
-            cur_item = hashTableItems.get(index);
+            curItem = hashTableItems.get(index);
             i++;
         }
         hashTableItems.set(index, item);

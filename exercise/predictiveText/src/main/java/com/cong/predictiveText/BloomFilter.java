@@ -11,24 +11,16 @@ public class BloomFilter implements Dictionary{
     private static final double LN2 = 0.6931471805599453;
     private static final int MAX_ELEMENTS = 1400000;
 
-    /**
-     * Create a new bloom filter.
-     * @param n Expected number of elements
-     * @param m Desired size of the container in bits
-     **/
-    private BloomFilter(int n, int m) {
-        numHashFunc = (int) Math.round(LN2 * m / n);
+
+    private BloomFilter(int numExpectedElements, int numBits) {
+        numHashFunc = (int) Math.round(LN2 * numBits / numExpectedElements);
         if (numHashFunc <= 0) numHashFunc = 1;
-        this.hashes = new BitSet(m);
-        this.randomInRange = new RandomInRange(m, numHashFunc);
+        this.hashes = new BitSet(numBits);
+        this.randomInRange = new RandomInRange(numBits, numHashFunc);
     }
 
-    /**
-     * Create a bloom filter of 1Mib.
-     * @param n Expected number of elements
-     **/
-    private BloomFilter(int n) {
-        this(n, 1024*1024*8);
+    private BloomFilter(int numExpectedElements) {
+        this(numExpectedElements, 1024*1024*8);
     }
 
     private static class SingletonHelper{
@@ -45,11 +37,6 @@ public class BloomFilter implements Dictionary{
         for (RandomInRange r : randomInRange) hashes.set(r.value);
     }
 
-    /**
-     * Returns true if the element is in the container.
-     * Returns false with a probability ≈ 1-e^(-ln(2)² * m/n)
-     * if the element is not in the container.
-     **/
     public boolean contains(String key) {
         randomInRange.init(key);
         for (RandomInRange r : randomInRange)
@@ -67,9 +54,9 @@ public class BloomFilter implements Dictionary{
         private int i = 0;
         public int value;
 
-        RandomInRange(int maximum, int k) {
+        RandomInRange(int maximum, int numHashFunc) {
             max = maximum;
-            count = k;
+            count = numHashFunc;
             random = new Random();
         }
         public void init(Object o) {
