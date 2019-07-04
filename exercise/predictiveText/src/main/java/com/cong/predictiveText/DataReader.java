@@ -1,24 +1,21 @@
 package com.cong.predictiveText;
 
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DataReader {
 
     public static void read(String pathToFolder) throws FileNotFoundException {
         File folder = new File(pathToFolder);
-        if(!folder.exists() || !folder.isDirectory()){
+        if (!folder.exists() || !folder.isDirectory()) {
             throw new FileNotFoundException();
         }
         File[] fileNames = folder.listFiles();
 
-        //Set<String> listWord = new HashSet<String>();
         BufferedReader reader;
+
+        Set<String> totalWord = new HashSet<String>();
 
         for (File file : fileNames) {
             try {
@@ -31,8 +28,15 @@ public class DataReader {
                     document.append(line).append("\n");
                 }
 
-                DataNormalizer.addDataIntoApp(DataNormalizer.getListWord(document.toString()));
-                //listWord.addAll(DataNormalizer.getListWord(document.toString()));
+                Set<String> listWord = DataNormalizer.getListWord(document.toString());
+
+                DataNormalizer.addDataIntoApp(listWord);
+                totalWord.addAll(listWord);
+
+                System.out.println("Words per file: " + listWord.size());
+
+
+
                 document.setLength(0);
 
                 reader.close();
@@ -40,26 +44,7 @@ public class DataReader {
                 e.printStackTrace();
             }
         }
-        //return listWord;
+        System.out.println("Total words: " + totalWord.size());
     }
-
-    public static void readXML(String pathToFolder) throws IOException, SAXException {
-        File folder = new File(pathToFolder);
-        File[] fileNames = folder.listFiles();
-
-        for(File file : fileNames){
-            DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = null;
-            try {
-                documentBuilder = documentBuilderFactory.newDocumentBuilder();
-            } catch (ParserConfigurationException e) {
-                e.printStackTrace();
-            }
-            Document document = documentBuilder.parse(file);
-
-            String post = document.getElementsByTagName("post").item(0).getTextContent();
-        }
-    }
-
 }
 

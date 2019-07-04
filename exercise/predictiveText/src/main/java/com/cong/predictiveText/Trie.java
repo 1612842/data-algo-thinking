@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class Trie implements Dictionary {
 
-    // trie node
     class TrieNode
     {
         Map<Character, TrieNode> children = new HashMap<Character, TrieNode>();
@@ -58,7 +57,7 @@ public class Trie implements Dictionary {
         for(i = 0; i < length; i++){
             c = key.charAt(i);
 
-            if (pCrawl.children.containsKey(c) == false)
+            if (!pCrawl.children.containsKey(c))
                 return false;
 
             pCrawl = pCrawl.children.get(c);
@@ -77,7 +76,7 @@ public class Trie implements Dictionary {
         for (i = 0; i < length; i++)
         {
             c = key.charAt(i);
-            if (pCrawl.children.containsKey(c) == false)
+            if (!pCrawl.children.containsKey(c))
                 pCrawl.children.put(c, new TrieNode());
 
             pCrawl = pCrawl.children.get(c);
@@ -99,7 +98,7 @@ public class Trie implements Dictionary {
         {
             c = key.charAt(i);
 
-            if (pCrawl.children.containsKey(c) == false)
+            if (!pCrawl.children.containsKey(c))
                 return result;
 
             pCrawl = pCrawl.children.get(c);
@@ -110,13 +109,13 @@ public class Trie implements Dictionary {
 
     private void DFS(TrieNode pCrawl, String key, List<String> result){
         pCrawl.isVisit = true;
-        if(pCrawl.isEndOfWord == true){
+        if(pCrawl.isEndOfWord){
             result.add(key);
         }
 
         for(Character c : pCrawl.children.keySet())
         {
-            if(pCrawl.children.get(c).isVisit == false){
+            if(!pCrawl.children.get(c).isVisit){
                 key+=c;
                 DFS(pCrawl.children.get(c), key, result);
                 key = key.substring(0, key.length() - 1);

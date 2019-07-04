@@ -17,7 +17,7 @@ public class DataNormalizer {
     }
 
     public static Set<String> splitWord(String line){
-        line = line.replaceAll("[!?,.:;`~@*#$%&()|\"]", " ");
+        line = line.replaceAll("[!?,.:;`'~@*#$%&()|\"]", " ");
         String[] words = line.split("[\\s,.]+");
         return new HashSet<String>(Arrays.asList(words));
     }

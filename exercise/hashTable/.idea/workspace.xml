@@ -7,38 +7,198 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="267c7ab9-6a58-4df3-8c6c-d07a4cb10c70" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/DoubleHashing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/HashFunction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/LinearProbing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/QuadraticProbing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cong/primePackage/PrimeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/.idea/artifacts/predictiveText_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/predictiveText.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/App.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/BloomFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/DataNormalizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/DataReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/Dictionary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/DictionaryList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/Trie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/hashTable_jar/hashTable.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/hashTable_jar/hashTable.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cong/hashtable/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cong/hashTablePackage/HashTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cong/hashtable/HashTableDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cong/HashTableDemo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cong/hashtable/HashTableItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cong/hashTablePackage/HashTableItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cong/hashtable/HashTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cong/hashtable/HashTableDemo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cong/hashtable/HashTableItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/DoubleHashing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/DoubleHashing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/HashFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/HashFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cong/collisionHandlingPackage/DoubleHashing.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cong/collisionHandlingPackage/DoubleHashing.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cong/collisionHandlingPackage/HashFunction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cong/collisionHandlingPackage/HashFunction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/BloomFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/BloomFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/DataNormalizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/DataNormalizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/DataReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/DataReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/Trie.java" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/src/main/java/com/cong/predictiveText/Trie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/META-INF/predictiveText.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/App$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/App$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/App$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/App$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/BloomFilter$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/BloomFilter$RandomInRange.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/BloomFilter$RandomInRange.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/BloomFilter$SingletonHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/BloomFilter$SingletonHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/BloomFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/BloomFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/DataNormalizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/DataNormalizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/DataReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/DataReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/Dictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/Dictionary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/DictionaryList.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/DictionaryList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/Trie$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/Trie$SingletonHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/Trie$SingletonHelper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/Trie$TrieNode.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/Trie$TrieNode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/Trie.class" beforeDir="false" afterPath="$PROJECT_DIR$/../predictiveText/target/classes/com/cong/predictiveText/Trie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../predictiveText/target/classes/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/biz/(Voices That Matter) Steve Krug-Don't Make Me Think, Revisited_ A Common Sense Approach to Web Usability-New Riders (2014).epub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/biz/business-model-generation-a-handbook-for-visionaries,-game-changers-and-challengers.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/biz/value-proposition-design-how-to-create-products-and-services-customers-want.pdf.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/product/Learning-Tín ngưỡng của người làm sản phẩm.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/product/VNG-ZaloPay Overview.pptx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/Apache-Kafka-Definitive-Guide-2017.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/Creating-a-Website-The-Missing-Manual-3rd-Edition.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/Docker- Up and Running.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/Getting-Started-with-Google-Guava-Write-better-more-efficient-Java-and-have-fun-doing-so-.epub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/Kelsey Hightower, Brendan Burns, Joe Beda - Kubernetes_ Up and Running_ Dive into the Future of Infrastructure (2017, O’Reilly Media).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/Martin Kleppmann-Designing Data-Intensive Applications_ The Big Ideas Behind Reliable, Scalable, and Maintainable Systems-O’Reilly Media (2017).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/The-Linux-programming-interface-a-Linux-and-UNIX-system-programming-handbook.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/edmond-lau-the-effective-engineer-how-to-leverage-your-efforts-in-software-engineering-to-make-a-disproportionate-and-meaningful-impact.epub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/oreilly-graph-databases.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/skills/Robert C. Martin - Clean Code_ A Handbook of Agile Software Craftsmanship (2008, Prentice Hall).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/skills/Robert C. Martin - The Clean Coder_ A Code of Conduct for Professional Programmers (Robert C. Martin Series) (2011, Prentice Hall).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/sql/Baron Schwartz, Peter Zaitsev, Vadim Tkachenko - High performance MySQL_ optimization, backups, and replication (2012, O’Reilly Media).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/books/tech/sql/SQLPerformanceExplained.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/images/algos.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/images/chan-trau-doc-sach.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/images/onboarding.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/images/training.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/product/awesome-ui.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/product/awesome-ux.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/product/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/cpp-concurrency-in-action.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/effective-modern-cpp.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/linux/Advanced Programming in the UNIX Environment (3rd ed).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/linux/The Design of the UNIX Operating System.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/linux/The-Linux-programming-interface-a-Linux-and-UNIX-system-programming-handbook.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/linux/Unix Network Programming (1st ed).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/linux/Unix Network Programming (2nd ed).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/linux/linux-system-programming.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/modern-cpp-design.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/books/the-c-programming-language.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/images/cpp-timeline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/advanced/cpp-programming/images/vscode.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/00-think-different/02-networking.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/00-think-different/03-mooc.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/00-think-different/04-life.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/00-think-different/philosophy.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/00-think-different/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/effective-git/extra/01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/effective-git/extra/05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/effective-git/extra/26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/effective-git/extra/fb@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/effective-git/extra/hotfix-branches@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/effective-git/extra/main-branches@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/effective-git/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/install-code-exts.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/media/ceo-fb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/media/hero.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/01-system-thinking/useful-things.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/01-linux-shell.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/02-linux-programming.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/03-docker.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/book/Beginning_Linux_Programming_4e.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/book/Docker-Up-and-Running.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/book/GDB-Cheat-Sheet.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/book/IPC_Overview-LCA-2013-printable.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/book/The-Linux-Command-Line-William-Shotts.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/book/The-Linux-programming-interface-a-Linux-and-UNIX-system-programming-handbook.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/book/linux_system_programming_2nd_edition.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/media/docker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/media/linux-system-programming.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/media/linux.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/media/sample.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/media/shell.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/02-linux-thinking/template/weekly-report.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/Maven.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/jupyter.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/algos.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/anaconda_install.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/cell_change_type.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/cell_run.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/ipynb_file.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/jupyter_interface.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/jupyter_main_page.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/jupyter_start.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/notebook_rename.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/media/python_notebook.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/ticketSLA/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/ticketSLA/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/ticketSLA/src/main/java/com/zalopay/SlaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/ticketSLA/src/main/java/com/zalopay/SlaServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/03-data-algo-thinking/ticketSLA/src/test/java/com/zalopay/SlaServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/04-database-thinking/01-mysql.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/04-database-thinking/02-redis.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/04-database-thinking/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/04-database-thinking/media/1600px-Postgres_Query.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/05-java-thinking/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/05-java-thinking/medi/Java-1-Introduction.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/01_basic-of-web-development.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/02_advanced_of_web_development.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/03_final-assignment.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/04_evaluation.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/05_timeline.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/caro.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/chat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/color-picker.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/image-gallery.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/image_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/image_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/image_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/image_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/image_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/06-web-thinking/media/minesweeper.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/assignments/data/detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/assignments/data/testing_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/assignments/data/training_data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/assignments/problem-income-classification.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/media/ai.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/media/data-science.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/media/lifecycle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/media/ml.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/07-data-science-thinking/thought-suggestion-opinion.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/01-monertary-and-financial.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/02-introduction-to-fintech.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/03-business-model-and-planning.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/03-workshop-business-model.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/BMC.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/Biz-model.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/Fin_Tech_Course.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/fintech-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/fintech.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/fintech4.0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/giao-trinh-ly-thuyet-tai-chinh-tien-te1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/giao-trinh-ly-thuyet-tai-chinh-tien-te2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/long_tail.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/08-fintech-thinking/media/swot.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/anhld2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/ducdt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/hero.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/system-thinker.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/tannt3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/thanhvc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/thieuvt.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/tuannlh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/vutq2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/media/yennlh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../onboarding-edu-2.1/tech/basic/mentor-ethics.md" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,8 +216,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/HashTableDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
+            <state relative-caret-position="360">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,8 +237,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/HashFunction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+            <state relative-caret-position="270">
+              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -140,8 +300,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/hashTablePackage/HashTable.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
+            <state relative-caret-position="1650">
+              <caret line="114" column="24" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4189#4190#0" expanded="true" />
@@ -204,10 +364,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/cong/collisionHandling/LinearProbing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cong/collisionHandling/QuadraticProbing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cong/primePackage/PrimeHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/HashFunction.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cong/HashTableDemo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cong/hashTablePackage/HashTableItem.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/cong/hashTablePackage/HashTable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/HashFunction.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/DoubleHashing.java" />
       </list>
     </option>
   </component>
@@ -254,22 +415,10 @@
               <item name="com.cong" type="1f31426a:PackageElementNode" />
               <item name="hashTablePackage" type="1f31426a:PackageElementNode" />
             </path>
-            <path>
-              <item name="hashTable" type="58d84e3e:PackageViewProjectNode" />
-              <item name="hashTable" type="616d4139:PackageViewModuleNode" />
-              <item name="com.cong" type="1f31426a:PackageElementNode" />
-              <item name="primePackage" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="hashTable" type="58d84e3e:PackageViewProjectNode" />
-              <item name="hashTable" type="616d4139:PackageViewModuleNode" />
-              <item name="META-INF" type="1f31426a:PackageElementNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,13 +430,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ticketSLA" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -337,16 +487,17 @@
       <workItem from="1561452611140" duration="3945000" />
       <workItem from="1561531128152" duration="286000" />
       <workItem from="1561531477397" duration="1240000" />
+      <workItem from="1562212161160" duration="204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5471000" />
+    <option name="totallyTimeSpent" value="5675000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="26" width="1366" height="742" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19090909" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19292426" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -355,7 +506,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32784185" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32721713" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -365,7 +516,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32784185" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32721713" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -413,27 +564,10 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/hashTable/hashTable.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/HashTableDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/HashFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -444,10 +578,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/DoubleHashing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/collisionHandlingPackage/HashFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -465,24 +613,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/hashTablePackage/HashTableItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/hashTablePackage/HashTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
+        <state relative-caret-position="1650">
+          <caret line="114" column="24" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4189#4190#0" expanded="true" />
@@ -505,6 +639,23 @@
             <element signature="e#4922#4923#0" expanded="true" />
             <element signature="e#4967#4968#0" expanded="true" />
             <element signature="e#5007#5008#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/hashTablePackage/HashTableItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cong/HashTableDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

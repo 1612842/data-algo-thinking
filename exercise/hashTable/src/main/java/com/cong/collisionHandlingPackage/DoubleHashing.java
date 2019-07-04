@@ -11,9 +11,9 @@ public class DoubleHashing extends HashFunction {
     }
 
     public int getHash(String s, int attempt) {
-        int hash_a = genericHash(s, PRIME_1);
-        int hash_b = genericHash(s, PRIME_2);
-        return (hash_a + (attempt * (hash_b == 0 ? 1 : hash_b))) % numBuckets;
+        int hashA = genericHash(s, PRIME_1);
+        int hashB = genericHash(s, PRIME_2);
+        return (hashA + (attempt * (hashB == 0 ? 1 : hashB))) % numBuckets;
     }
 }
 

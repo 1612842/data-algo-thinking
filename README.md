@@ -1126,13 +1126,81 @@ total time after remove maintain task: 237.0
   - Class name: tên class không nên là động từ, phải là danh từ:
     - Thêm cái nữa là giả sử từ Address. Thấy hay có cái như AccountAddress ClientAddress MACAddress. Nó khá dư thừa.
 
-    - Tốt hơn nên sử dụng luôn MAC thay cho MACAdress. Còn ClientAddress hay AccountAddress thì nên là Client.Address thay cho Client.ClientAddress. Tên class nó thể hiện rồi mà.
+    - Tốt hơn nên sử dụng luôn MAC thay cho MACAdress. Còn ClientAddress hay AccountAddress thì nên là Client.Address thay cho Client.ClientAddress
 
-    - Trong trường hợp cùng một class mà có 2 property liên quan đến address như Client.HouseAddress và Client.CompanyAddress thì nên dùng 😀
+    - Trong trường hợp cùng một class mà có 2 property liên quan đến address như Client.HouseAddress và Client.CompanyAddress thì nên dùng
 
   - Method name: nên là động từ 
   - Functions: một hàm nên có tầm 20 dòng, 150 kí tự là đẹp, 1 method nên làm đúng 1 việc mà tên hàm đưa ra
+  - Comments nên hạn chế được đưa vào code, tuy nhiên dưới đây là một số good comment bạn nên đưa vào để bổ sung các thông tin hữu ích cho các đoạn code của bạn:
+    - Legal Comments: Comment về pháp lý
+    
+    ```C
+    /**
+    * Created by VSCode.
+    * User: Le Thanh Cong
+    * Date: 04/07/2019
+    * Time: 08:50
+    */
+    ```
 
+    - Các comment chứa thông tin: cung cấp thông tin cơ bản nhất về 1 hàm (đầu vào, format đầu ra)
+    - Giả thích thêm cho mục đích, quyết định
+    - Đưa ra cảnh báo hậu quả
+    - TODO comments: các công việc chưa kịp thực hiện hoặc cần phát triển
+    - Hạn chế các comments thừa, code comments
+  - Sử dụng Exceptions hơn là trả về giá trị trong code:
+    
+    ```PHP
+    public function updateBook($id, $attribute)
+    {
+        $boook = Book::find($id);
+        if (!empty($book)) {
+            $book->update($attribute);
+        } else {
+            throw new Exception('404');
+        }
+    }
+    ```
+
+  -   Đừng trả về null, thay vào đó hãy trả về SPECIAL CASE OBJECT
+  -   Viết các đoạn code thành Try-Catch-Finally để dễ quan sát các xử lý code và ngoại lệ
+  -   Cung cấp đầy đủ thông tin ngoại lệ nhất (có thể ghi log) để dễ dàng debug
+  -   Nếu exception có code logic hoặc các exception gây ra bởi bên thứ 3, cân nhắc "wrapping"- đóng gói lại trong một lớp ngoại lệ mới ta xây dựng
+  -   Chưa có cách hoàn hảo nhất để xử lý với null, hạn chế truyền và nhận nó vào các hàm
+
+
+-   Khi sử dụng switch-case, cân nhắc sử dụng ABSTRACT FACTORY.
+    
+    ```Java
+    public abstract class Employee {
+        public abstract boolean isPayday();
+        public abstract Money calculatePay();
+        public abstract void deliverPay(Money pay);
+    }
+    -----------------
+    public interface EmployeeFactory {
+        public Employee makeEmployee(EmployeeRecord r) throws InvalidEmployeeType;
+    }
+    -----------------
+    public class EmployeeFactoryImpl implements EmployeeFactory {
+        public Employee makeEmployee(EmployeeRecord r) throws InvalidEmployeeType {
+            switch (r.type) {
+            case COMMISSIONED:
+            return new CommissionedEmployee(r) ;
+            case HOURLY:
+            return new HourlyEmployee(r);
+            case SALARIED:
+            return new SalariedEmploye(r);
+            default:
+            throw new InvalidEmployeeType(r.type);
+            }
+        }
+    }
+    ```
+
+- Cân nhắc và tìm cách giảm đối số truyền vào của 1 hàm, xuống 1 đến 2 là tốt để có thể test và dễ hiểu.
+- Tên hàm cũng cực kì quan trọng, tránh để double-take. Tên đẹp nhất là cum verb/noun(cho loại hàm 1 đối số).
 # 2. Bài tập
 
 ## 2.1. Predictive text
@@ -1162,6 +1230,8 @@ Làm chương trình Java cung cấp 2 tính năng:
 - Tham khảo [repo sau](https://github.com/jamesroutley/write-a-hash-table).
 - Viết lại hoàn toàn bằng Java một hash table tương tự.
 - Hiện thực ít nhất 3 cách giải quyết đụng độ.
+
+- [Solution](exercise/hashTable/)
 
 ## 2.3. Tính thời gian xử lý khiếu nại
 
@@ -1202,3 +1272,5 @@ Trong folder `ticketSLA` là 1 project java đã được `init` sẵn. Bạn h�
 - https://viblo.asia/p/design-patterns-singleton-pattern-maGK7zra5j2
 
 - https://stackjava.com/design-pattern/composite-pattern.html
+
+-   https://viblo.asia/p/clean-code-chapter-7-error-handling-aWj53OvG56m

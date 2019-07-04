@@ -35,15 +35,21 @@ public class App {
 
                     String method = cbxSearchMethod.getSelectedItem().toString();
 
-                    if(dictionaryList.contains(key)){
-                        JOptionPane.showMessageDialog(null, key + " is exist by "+method);
+                    long startTime = System.nanoTime();
+                    boolean checkExist = dictionaryList.contains(key);
+                    long endTime = System.nanoTime();
+                    long benchmark = endTime-startTime;
+
+
+                    if(checkExist){
+                        JOptionPane.showMessageDialog(null, key + " exist by "+method+" in "+benchmark+" ns");
                     }
                     else {
-                        JOptionPane.showMessageDialog(null, key + " is not exist by "+method);
+                        JOptionPane.showMessageDialog(null, key + " does not exist by "+method +" in "+benchmark+" ns");
                     }
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "Input not null");
+                    JOptionPane.showMessageDialog(null, "Input can not be null");
                 }
             }
         });

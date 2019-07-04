@@ -6,12 +6,10 @@ import java.util.Iterator;
 
 public class BloomFilter implements Dictionary{
     private BitSet hashes;
-    private RandomInRange prng;
-    private int k; // Number of hash functions
-    private static final double LN2 = 0.6931471805599453; // ln(2)
-    private static final int MAX_ELEMENTS = 1500000;
-
-    private BloomFilter(){}
+    private RandomInRange randomInRange;
+    private int numHashFunc;
+    private static final double LN2 = 0.6931471805599453;
+    private static final int MAX_ELEMENTS = 1400000;
 
     /**
      * Create a new bloom filter.
@@ -19,10 +17,10 @@ public class BloomFilter implements Dictionary{
      * @param m Desired size of the container in bits
      **/
     private BloomFilter(int n, int m) {
-        k = (int) Math.round(LN2 * m / n);
-        if (k <= 0) k = 1;
+        numHashFunc = (int) Math.round(LN2 * m / n);
+        if (numHashFunc <= 0) numHashFunc = 1;
         this.hashes = new BitSet(m);
-        this.prng = new RandomInRange(m, k);
+        this.randomInRange = new RandomInRange(m, numHashFunc);
     }
 
     /**
@@ -41,14 +39,10 @@ public class BloomFilter implements Dictionary{
         return BloomFilter.SingletonHelper.INSTANCE;
     }
 
-    /**
-     * Add an element to the container
-     **/
-
 
     public void add(String key) {
-        prng.init(key);
-        for (RandomInRange r : prng) hashes.set(r.value);
+        randomInRange.init(key);
+        for (RandomInRange r : randomInRange) hashes.set(r.value);
     }
 
     /**
@@ -57,8 +51,8 @@ public class BloomFilter implements Dictionary{
      * if the element is not in the container.
      **/
     public boolean contains(String key) {
-        prng.init(key);
-        for (RandomInRange r : prng)
+        randomInRange.init(key);
+        for (RandomInRange r : randomInRange)
             if (!hashes.get(r.value))
                 return false;
         return true;
@@ -67,19 +61,19 @@ public class BloomFilter implements Dictionary{
     private class RandomInRange
             implements Iterable<RandomInRange>, Iterator<RandomInRange> {
 
-        private Random prng;
-        private int max; // Maximum value returned + 1
-        private int count; // Number of random elements to generate
-        private int i = 0; // Number of elements generated
-        public int value; // The current value
+        private Random random;
+        private int max;
+        private int count;
+        private int i = 0;
+        public int value;
 
         RandomInRange(int maximum, int k) {
             max = maximum;
             count = k;
-            prng = new Random();
+            random = new Random();
         }
         public void init(Object o) {
-            prng.setSeed(o.hashCode());
+            random.setSeed(o.hashCode());
         }
         public Iterator<RandomInRange> iterator() {
             i = 0;
@@ -87,7 +81,7 @@ public class BloomFilter implements Dictionary{
         }
         public RandomInRange next() {
             i++;
-            value = prng.nextInt() % max;
+            value = random.nextInt() % max;
             if (value<0) value = -value;
             return this;
         }

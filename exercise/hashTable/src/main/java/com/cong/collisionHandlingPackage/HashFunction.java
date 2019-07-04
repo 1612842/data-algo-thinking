@@ -20,10 +20,10 @@ public abstract class HashFunction {
 
     protected int genericHash(String s, int prime){
         long hash = 0;
-        int len_s = s.length();
+        int lengthS = s.length();
 
-        for(int i=0;i<len_s;i++){
-            hash+=(long)Math.pow(prime, len_s - (i+1))*s.charAt(i);
+        for(int i=0;i<lengthS;i++){
+            hash+=(long)Math.pow(prime, lengthS - (i+1))*s.charAt(i);
             hash=hash % numBuckets;
         }
         return (int)hash;
